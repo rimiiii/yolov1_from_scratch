@@ -92,7 +92,7 @@ m = nn.LeakyReLU(0.1)(m)
 
 m = torch.flatten(m, start_dim=1) #50176
 m = nn.Linear(50176, 4096)(m) #4096
-m = nn.Linear(4096, S*S*(C+B*5))(m) #7*7*30
+m = nn.Linear(4096, S**2 * (C+B*5))(m)
 m = torch.reshape(m, (-1, S, S, (C+B*5))) #7x7x30(30=2(bounding box 갯수)x5(x,y,w,h,confidence prediction)+20(class))
 
 print(m.shape)

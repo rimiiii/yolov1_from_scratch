@@ -24,5 +24,4 @@ def intersection_over_union(pred_box, true_box):
     intersection_area = intersection_width * intersection_height
 
     union_area = pred_box[...,2]*pred_box[...,3] + true_box[...,2]*true_box[...,3] - intersection_area
-    iou = intersection_area / union_area
-    return iou
+    return intersection_area / union_area
